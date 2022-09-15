@@ -2,7 +2,7 @@
 # Harrison Fung 
 # CSCI 77800 Fall 2022
 # collaborators: Harrison Fung
-# consulted: 
+# consulted: https://robertheaton.com/2018/07/20/project-2-game-of-life/
 
 import random
 
