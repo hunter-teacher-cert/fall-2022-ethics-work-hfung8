@@ -192,12 +192,18 @@ def purchase_economy_block(plane,economy_sold,number,name):
     available, store the name and number of seats purchased in the
     economy_sold dictionary and return the new dictionary
     """
-    seats_avail = get_total_seats(plane)
-    seats_avail = seats_avail - get_number_economy_sold(economy_sold)
+    # seats_avail = get_total_seats(plane)
+    # seats_avail = seats_avail - get_number_economy_sold(economy_sold)
+
+    seats_avail = get_avail_seats(plane, economy_sold)
 
     if seats_avail >= number:
         economy_sold[name]=number
     return economy_sold
+
+def number_of_seats_per_row(plane):
+    rows = len(plane)
+    return rows
 
 
 def fill_plane(plane):
@@ -221,6 +227,18 @@ def fill_plane(plane):
     # you will probably want to change parts of this
     # for example, when to stop purchases, the probabilities, maybe the size for the random
     # regular economy size
+
+    # if the passengers are a group they will be seated together in the same row. 
+    # if there is no room to allocate all the group members together in the same row, they will get separated seats 
+
+    # check if the passengers can fit together in the same row
+    # number_of_rows = 
+
+
+
+
+
+
 
     max_family_size = 3
     while total_seats > 1:
@@ -249,7 +267,11 @@ def fill_plane(plane):
     
 def main():
     plane = create_plane(10,5)
+    print(plane)
+    seats = number_of_seats_per_row(plane[0])
+    print(seats)
     plane = fill_plane(plane)
+    print(plane)
     print(get_plane_string(plane))
 if __name__=="__main__":
     main()
